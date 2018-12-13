@@ -1,0 +1,6 @@
+name = "wings"
+description = "Weeeee"
+
+[runtime]
+service = "lambda"
+language = "python36"
