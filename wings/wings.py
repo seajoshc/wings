@@ -4,12 +4,15 @@ wings
 Dead simple CI/CD for your AWS projects.
 """
 import argparse
+import os
 import boto3
+from .validate_config import ValidateConfig
 
 
 def main():
     """ """
-    return
+    config = ValidateConfig(os.getcwd() + "/wings.toml").config
+    print(config)
 
 
 if __name__ == "__main__":
