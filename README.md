@@ -1,5 +1,5 @@
 # wings
-The goal of wings is to build and manage CI/CD for projects using select AWS services with little to no configuration. This means you take your existing source code, run wings, and get a full CI/CD pipeline using native AWS tools ([Code Suite services](https://aws.amazon.com/products/developer-tools/)). Spend more time coding and less time managing your CI/CD infrastructure with wings.
+The goal of wings is to build and manage opinionated CI/CD toolchains for software projects using select AWS services with minimal configuration by the user. This means you take your existing source code, write a little bit of TOML, run wings, and get a full CI/CD pipeline using native AWS tools ([Code Suite services](https://aws.amazon.com/products/developer-tools/)) that cost next to nothing. Knowledge of the underlying services is not required. Spend more time coding and less time managing your CI/CD.
 
 # Supported AWS Services
 wings knows how to model CI/CD for projects running on the following AWS services:
