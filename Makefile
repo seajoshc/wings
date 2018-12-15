@@ -9,7 +9,7 @@ pypi:
 	@if [ -d "build/" ]; then rm -rf build/; fi
 	@python setup.py sdist bdist_wheel
 	@twine upload dist/*
-	@git tag v$$(grep __version__ wings/__init__.py | cut -d'"' -f 2)
+	@git tag v$$(grep __version__ wings/__version__.py | cut -d'"' -f 2)
 	@git push --tags
 
 package:
@@ -18,7 +18,7 @@ package:
 	@python setup.py sdist bdist_wheel
 
 tag:
-	@git tag v$$(grep __version__ wings/__init__.py | cut -d'"' -f 2)
+	@git tag v$$(grep __version__ wings/__version__.py | cut -d'"' -f 2)
 	@git push --tags
 
 test:
