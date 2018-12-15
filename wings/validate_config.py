@@ -6,6 +6,8 @@ class ValidateConfig():
     def __init__(self, config_file):
         self.config = toml.load(config_file)
         self._validate()
+        for key, value in self.config.items():
+            setattr(self, key, value)
 
     def _validate(self):
         """ Validation rules for the config """
