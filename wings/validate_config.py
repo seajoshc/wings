@@ -31,13 +31,16 @@ class ValidateConfig():
                 .format(service, ', '.join(RUNTIME_SERVICES)))
 
         # Finally, we validate the service specific configuration.
-        LAMBDA_LANGUAGES = ["python36"]
+        LAMBDA_LANGUAGES = ["python27", "python36", "python37"]
         if service == 'lambda':
             if 'language' not in self.config['runtime']:
                 raise KeyError(
                     "Required key 'language' missing from [runtime]. "
                     "Supported values for 'language' are: "
                     "{}".format(', '.join(LAMBDA_LANGUAGES)))
+
+            # TODO validations for restricted characters for
+            # function name and description
 
             language = self.config['runtime']['language']
             if language not in LAMBDA_LANGUAGES:
