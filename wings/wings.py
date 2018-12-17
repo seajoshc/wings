@@ -5,17 +5,25 @@ Dead simple CI/CD for your AWS projects.
 """
 import argparse
 import os
+import sys
 from wings.__version__ import __version__
+from wings.aws import Toolchain
 from wings.validate_config import ValidateConfig
 
 
 def main():
-    """ """
+    """ Main function for wings """
+    print("Starting wings...")
     args = parse_args()
 
     if args.up:
         config = ValidateConfig(os.getcwd() + "/wings.toml").config
         print(config)
+        toolchain = Toolchain(config)
+        toolchain.build_toolchain()
+
+    print("Success!")
+    sys.exit(0)
 
 
 def parse_args():
