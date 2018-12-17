@@ -1,5 +1,6 @@
 import pytest
 import toml
+from toml.decoder import TomlDecodeError
 from unittest.mock import patch
 from wings.validate_config import ValidateConfig
 
@@ -111,3 +112,11 @@ def test_validate_config_with_invalid_language(mock_toml_load):
 
     with pytest.raises(ValueError):
         ValidateConfig('/fake_path_yo/wings.toml').config
+
+
+@patch('toml.load')
+def test_validate_config_with_invalid_toml(mock_toml_load):
+    with pytest.raises(TomlDecodeError):
+        mock_toml_load.return_value = toml.loads("""
+            not toml
+        """)
