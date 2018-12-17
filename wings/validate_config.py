@@ -44,5 +44,5 @@ class ValidateConfig():
             language = self.config['runtime']['language']
             if language not in LAMBDA_LANGUAGES:
                 raise ValueError("'{}' is an invalid lanaguage for Lambda. "
-                                 "Supported languages are: {}".format(
-                                    language, ', '.join(LAMBDA_LANGUAGES)))
+                              "Supported languages are: {}".format(
+                                language, ', '.join(LAMBDA_LANGUAGES)))
